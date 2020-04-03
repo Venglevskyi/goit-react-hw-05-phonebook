@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 import { formFilter } from "../../redux/contacts/contactsActions";
 import {
   getFilterContact,
   getVisibleContacts
 } from "../../redux/contacts/contactsSelectors";
-import PropTypes from "prop-types";
 
 import styles from "./filter.module.css";
 

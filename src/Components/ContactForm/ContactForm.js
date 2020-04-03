@@ -10,7 +10,7 @@ import styles from "./contactForm.module.css";
 class ContactForm extends Component {
   state = {
     name: "",
-    number: "",
+    number: ""
   };
 
   handleChange = ({ target }) => {
@@ -81,7 +81,9 @@ ContactForm.propTypes = {
       id: PropTypes.string.isRequired
     })
   ),
-  onAddContact: PropTypes.func.isRequired
+  onAddContact: PropTypes.func.isRequired,
+  showNotification: PropTypes.func.isRequired,
+  hideNotification: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);

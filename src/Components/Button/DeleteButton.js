@@ -31,5 +31,5 @@ export default function IconLabelButtons({ removeContact }) {
 }
 
 IconLabelButtons.propTypes = {
-    removeContact: PropTypes.func.isRequired
-  };
+  removeContact: PropTypes.func.isRequired
+};

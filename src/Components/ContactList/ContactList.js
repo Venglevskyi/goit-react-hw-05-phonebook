@@ -8,7 +8,6 @@ import ContactListItem from "../ContactListItem/ContactListItem";
 import { getVisibleContacts } from "../../redux/contacts/contactsSelectors";
 import contactList from "./contactList.module.css";
 
-
 const ContactList = ({ contacts }) => (
   <TransitionGroup component="ul">
     {contacts.map(({ id }) => (

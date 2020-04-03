@@ -8,13 +8,6 @@ import {
   getContact
 } from "./redux/contacts/contactsSelectors";
 
-import styles from "./base.module.css";
-import animationTitle from "./css-animation-title/animationTitle.module.css";
-import animationFormContact from "./Components/ContactForm/animationFormContact.module.css";
-import contactList from "./Components/ContactList/contactList.module.css";
-import filterList from "./Components/Filter/filter.module.css";
-import animationNotification from "./Components/Notification/notification.module.css";
-
 import Layout from "./Components/Layout/Layout";
 import Spiner from "./Components/Loader/Loader";
 import Toggler from "./Components/Toggler/Toggler";
@@ -24,6 +17,12 @@ import Filter from "./Components/Filter/Filter";
 import ThemeContext from "./context/ThemeContext";
 import ServerError from "./Components/ServerError/ServerError";
 import Notification from "./Components/Notification/Notification";
+
+import styles from "./base.module.css";
+import animationTitle from "./css-animation-title/animationTitle.module.css";
+import animationFormContact from "./Components/ContactForm/animationFormContact.module.css";
+import contactList from "./Components/ContactList/contactList.module.css";
+import animationNotification from "./Components/Notification/notification.module.css";
 
 class App extends Component {
   state = {
@@ -90,7 +89,7 @@ class App extends Component {
             <CSSTransition
               in={contacts.length > 1}
               timeout={250}
-              classNames={filterList}
+              classNames={contactList}
               unmountOnExit
             >
               <Filter />

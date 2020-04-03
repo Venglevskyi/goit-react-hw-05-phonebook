@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { removeContact } from "../../redux/contacts/contactsOperations";
-import { getContactsById } from "../../redux/contacts/contactsSelectors";
 import PropTypes from "prop-types";
 
-import styles from "./contactList.module.css";
+import { removeContact } from "../../redux/contacts/contactsOperations";
+import { getContactsById } from "../../redux/contacts/contactsSelectors";
 import IconLabelButtons from "../Button/DeleteButton";
+
+import styles from "./contactList.module.css";
 
 const ContactListItem = ({ name, number, removeContact }) => (
   <li className={styles.contactsListItem}>
