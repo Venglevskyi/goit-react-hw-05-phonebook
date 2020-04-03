@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 import { addContact } from "../../redux/contacts/contactsOperations";
 import { getContact } from "../../redux/contacts/contactsSelectors";
-import PropTypes from "prop-types";
 
 import styles from "./contactForm.module.css";
 
 class ContactForm extends Component {
   state = {
     name: "",
-    number: ""
+    number: "",
   };
 
   handleChange = ({ target }) => {
@@ -24,7 +25,8 @@ class ContactForm extends Component {
       contact => contact.name === name
     );
     if (findContact) {
-      alert(`${findContact.name} is already consist`);
+      this.props.showNotification();
+      setTimeout(() => this.props.hideNotification(), 2000);
       return;
     }
     this.props.onAddContact(name, number);

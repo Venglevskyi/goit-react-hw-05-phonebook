@@ -27,7 +27,7 @@ const Filter = ({ value, onChange, contacts }) => (
     <TransitionGroup component="ul">
       {contacts.map(({ id }) => (
         <CSSTransition key={id} timeout={250} classNames={contactList}>
-          <ContactListItem id={id} />
+          <ContactListItem id={id}/>
         </CSSTransition>
       ))}
     </TransitionGroup>

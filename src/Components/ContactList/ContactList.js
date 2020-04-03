@@ -1,11 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
-import { getVisibleContacts } from "../../redux/contacts/contactsSelectors";
-import PropTypes from "prop-types";
 
-import contactList from "./contactList.module.css";
 import ContactListItem from "../ContactListItem/ContactListItem";
+
+import { getVisibleContacts } from "../../redux/contacts/contactsSelectors";
+import contactList from "./contactList.module.css";
+
 
 const ContactList = ({ contacts }) => (
   <ul>

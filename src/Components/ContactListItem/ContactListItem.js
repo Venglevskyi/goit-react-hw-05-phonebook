@@ -28,8 +28,13 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 ContactListItem.propTypes = {
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired
+    })
+  ),
   removeContact: PropTypes.func.isRequired
 };
 

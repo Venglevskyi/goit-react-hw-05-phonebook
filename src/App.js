@@ -11,6 +11,9 @@ import {
 import styles from "./base.module.css";
 import animationTitle from "./css-animation-title/animationTitle.module.css";
 import animationFormContact from "./Components/ContactForm/animationFormContact.module.css";
+import contactList from "./Components/ContactList/contactList.module.css";
+import filterList from "./Components/Filter/filter.module.css";
+import animationNotification from "./Components/Notification/notification.module.css";
 
 import Layout from "./Components/Layout/Layout";
 import Spiner from "./Components/Loader/Loader";
@@ -20,11 +23,23 @@ import ContactList from "./Components/ContactList/ContactList";
 import Filter from "./Components/Filter/Filter";
 import ThemeContext from "./context/ThemeContext";
 import ServerError from "./Components/ServerError/ServerError";
+import Notification from "./Components/Notification/Notification";
 
 class App extends Component {
+  state = {
+    isExist: false
+  };
   componentDidMount() {
     this.props.onGetContacts();
   }
+
+  showNotification = () => {
+    this.setState({ isExist: true });
+  };
+
+  hideNotification = () => {
+    this.setState({ isExist: false });
+  };
 
   render() {
     const { isLoadingContact, errorServer, contacts } = this.props;
@@ -33,6 +48,14 @@ class App extends Component {
         {errorServer && <ServerError />}
         {!errorServer && (
           <Layout>
+            <CSSTransition
+              in={this.state.isExist}
+              timeout={300}
+              classNames={animationNotification}
+              unmountOnExit
+            >
+              <Notification />
+            </CSSTransition>
             <Toggler />
             <CSSTransition
               in={true}
@@ -50,7 +73,10 @@ class App extends Component {
               classNames={animationFormContact}
               unmountOnExit
             >
-              <ContactForm />
+              <ContactForm
+                showNotification={this.showNotification}
+                hideNotification={this.hideNotification}
+              />
             </CSSTransition>
             <CSSTransition
               in={true}
@@ -61,8 +87,24 @@ class App extends Component {
             >
               <h2 className={styles.title}>Contacts</h2>
             </CSSTransition>
-            {contacts.length > 1 && <Filter />}
-            {contacts.length === 1 && <ContactList />}
+            <CSSTransition
+              in={contacts.length > 1}
+              timeout={500}
+              classNames={filterList}
+              unmountOnExit
+            >
+              <Filter />
+            </CSSTransition>
+
+            <CSSTransition
+              in={contacts.length === 1}
+              timeout={250}
+              classNames={contactList}
+              unmountOnExit
+            >
+              <ContactList />
+            </CSSTransition>
+
             {isLoadingContact && <Spiner />}
           </Layout>
         )}
