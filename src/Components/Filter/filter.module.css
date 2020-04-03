@@ -64,7 +64,7 @@
 .enterActive {
   opacity: 1;
   transform: scale(1);
-  transition: all 250ms linear 250;
+  transition: all 250ms linear;
 }
 
 .exit {

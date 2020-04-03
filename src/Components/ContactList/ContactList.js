@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { CSSTransition } from "react-transition-group";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { connect } from "react-redux";
 
 import ContactListItem from "../ContactListItem/ContactListItem";
@@ -10,13 +10,13 @@ import contactList from "./contactList.module.css";
 
 
 const ContactList = ({ contacts }) => (
-  <ul>
+  <TransitionGroup component="ul">
     {contacts.map(({ id }) => (
       <CSSTransition key={id} timeout={250} classNames={contactList}>
         <ContactListItem id={id} />
       </CSSTransition>
     ))}
-  </ul>
+  </TransitionGroup>
 );
 
 const mapStateToProps = state => ({

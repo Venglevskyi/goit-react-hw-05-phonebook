@@ -89,7 +89,7 @@ class App extends Component {
             </CSSTransition>
             <CSSTransition
               in={contacts.length > 1}
-              timeout={500}
+              timeout={250}
               classNames={filterList}
               unmountOnExit
             >
@@ -97,7 +97,7 @@ class App extends Component {
             </CSSTransition>
 
             <CSSTransition
-              in={contacts.length === 1}
+              in={contacts.length > 0}
               timeout={250}
               classNames={contactList}
               unmountOnExit

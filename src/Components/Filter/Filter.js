@@ -1,5 +1,4 @@
 import React from "react";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { connect } from "react-redux";
 import { formFilter } from "../../redux/contacts/contactsActions";
 import {
@@ -8,12 +7,9 @@ import {
 } from "../../redux/contacts/contactsSelectors";
 import PropTypes from "prop-types";
 
-import ContactListItem from "../ContactListItem/ContactListItem";
-
 import styles from "./filter.module.css";
-import contactList from "../ContactList/contactList.module.css";
 
-const Filter = ({ value, onChange, contacts }) => (
+const Filter = ({ value, onChange }) => (
   <div className={styles.filterForm}>
     <label className={styles.FormLabel}>
       Find contacts by name
@@ -24,13 +20,6 @@ const Filter = ({ value, onChange, contacts }) => (
         onChange={e => onChange(e.target.value)}
       />
     </label>
-    <TransitionGroup component="ul">
-      {contacts.map(({ id }) => (
-        <CSSTransition key={id} timeout={250} classNames={contactList}>
-          <ContactListItem id={id}/>
-        </CSSTransition>
-      ))}
-    </TransitionGroup>
   </div>
 );
 
