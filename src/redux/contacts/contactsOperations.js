@@ -14,7 +14,7 @@ const baseUrl = "https://goit-phonebook-api.herokuapp.com/contacts";
 const setHeaders = headers => {
   return {
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTg1ZTg0ZjUwYWYwODAwMTc2OTAyMDYiLCJpYXQiOjE1ODU4MzQwNjN9.LPl_lfqqUkcIndFIwI1LyYUIrfprg9_rc4QpED_uivc",
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZThiMTRkM2MzNWY3ODAwMTc4ZDIzZjIiLCJpYXQiOjE1ODYxNzMxMzl9.r4SYBtLre0QOTAzenRRY0vSBw39RaPzGFE9RBV7XHOQ",
     ...headers
   };
 };
